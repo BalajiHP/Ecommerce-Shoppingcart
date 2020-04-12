@@ -1,0 +1,126 @@
+			<!--  SINGLE PRODUCT DETAIL -->
+		    	<div class="col-12 edit-card" ng-if="edDelCtrl.showProduct">
+            <div class="container">
+
+          <div class="image-viewer">
+            <div class="main-image">
+              <img src="https://loremflickr.com/320/240"/>
+            </div>
+            <div class="secondary-images">
+              <div class="secondary-image">
+                <img src="http://placehold.it/500x500/f4c242/black/"/>
+              </div>
+              <div class="secondary-image">
+                <img src="http://placehold.it/200x1000/42c8f4/black/"/>
+              </div>
+              <div class="secondary-image">
+                <img src="http://placehold.it/300x600/bf42f4/black/"/>
+              </div>
+              <div class="secondary-image">
+                <img src="http://placehold.it/3200x1800/f4425c/black/"/>
+              </div>
+            </div>
+          </div>
+          <div class="detail">
+            <h1 class="detail-name">{{ edDelCtrl.product.productName }}</h1>
+            <p>Color: {{ edDelCtrl.product.color }}</p>
+            <p> Category : {{ edDelCtrl.product.category}}</p>
+            <p class="detail-short-description"> 
+              {{ edDelCtrl.product.additionalInfo}}            </p>
+            <div class="detail-long-description"> 
+              <p>Spicy jalapeno bacon ipsum dolor amet velit salami meatball enim jowl quis leberkas esse tempor boudin venison pariatur qui pork loin. Picanha consequat short loin in, swine sirloin tail venison ullamco adipisicing. Non cupim meatloaf duis aliquip. Exercitation filet mignon lorem aliquip meatball pork loin jowl. Cow do strip steak, adipisicing pig flank sausage kevin incididunt commodo. Chuck shoulder aliquip tenderloin meatball turducken commodo rump.</p>
+           </div>
+          </div>
+          <div class="pricing">
+            <div class="pricing-price">₹{{ edDelCtrl.product.price}}</div>
+            <p>Product Available in {{ edDelCtrl.product.availableIn }} days</p>
+            <button class="btn pricing-btn btn-primary" ng-click="edDelCtrl.addToCart()">Add to Cart</button>
+            <button class="btn btn-muted" ng-click="edDelCtrl.showHide()">Edit</button>
+				   		<button class="btn btn-danger" ng-click="edDelCtrl.deleteProduct()">Delete</button>
+          </div>
+          <div class="lightbox" id="lightbox">
+            <img src="http://placehold.it/650x650"/>
+            <div class="lightbox-controls">
+              <div class="lightbox-controls-close">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </div>
+              <div class="lightbox-controls-previous">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+              </div>
+              <div class="lightbox-controls-next">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    	
+			</div>
+
+      <!-- EDIT A PRODUCT FORM-->
+    	 <form ng-submit = "edDelCtrl.editProduct()" ng-if="edDelCtrl.showForm">
+          <div class="row">
+              <div class="col-sm-3 offset-sm-2">
+                <div class="card">
+                  <div class="card-block">
+                      <div class="form-group">
+                        <label for="product-name">Product-Name</label>
+                        <input type="text" name="inputProduct" ng-model="edDelCtrl.product.productName" class="form-control" id="product-name" aria-describedby="nameHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="product-category">Category</label>
+                        <input type="text" name="inputCategory" ng-model="edDelCtrl.product.category" class="form-control" id="product-cateogry" aria-describedby="categoryHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="product-color">Color</label>
+                        <input type="text" name="inputColor" ng-model="edDelCtrl.product.color" class="form-control" id="product-color" aria-describedby="colorHelp" required>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 offset-sm-2">
+                <div class="card">
+                  <div class="card-block">
+                      <div class="form-group">
+                        <label for="product-price">Price</label>
+                        <input type="number" name="inputPrice" ng-model="edDelCtrl.product.price" class="form-control" id="product-price" aria-describedby="priceHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="product-addinfo">Additional-Info</label>
+                        <input type="text" name="inputCategory" ng-model="edDelCtrl.product.additionalInfo" class="form-control" id="product-addinfo" aria-describedby="addinfoHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="product-avail">Available-In</label>
+                        <input type="number" name="inputDay" ng-model="edDelCtrl.product.availableIn" class="form-control" id="product-avail" aria-describedby="dayHelp" required>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <button class="btn btn-success" type="submit" style="display: block;margin: 0px auto;">Update!</button>
+        </form>

@@ -1,0 +1,25 @@
+<h2 class="text-center"> Products - Available </h2>
+			<!-- ALERT IF NO PRODUCTS PRESENT -->
+			<div class="alert alert-danger" ng-if="allCtrl.emptyProducts" role="alert">
+			  <strong> No products available </strong>
+			</div>
+			<!-- ALL PRODUCTS -->
+			<div class="row">
+				<div class="col-md-4"  ng-repeat = "item in allCtrl.allProducts">
+					<figure class="card card-product">
+						<div class="img-wrap"><img src="https://loremflickr.com/320/240"></div>
+						<figcaption class="info-wrap">
+								<h4 class="title">{{ item.productName }}</h4>
+								<p class="desc">{{ item.category }}</p>
+								<p>Owner : {{ item.owner.firstName }}</p>
+						</figcaption>
+						<div class="bottom-wrap">
+							<a  ng-href="#/product/{{ item._id }}" class="float-right"><i class="fa fa-info"  data-toggle="tooltip" data-placement="bottom" title="Know More"></i></a>	
+							<!-- <a href="" ng-click="dashCtrl.addToCart()" class="float-right"><i class="fa fa-cart-plus"  data-toggle="tooltip" data-placement="bottom" title="Add to Cart"></i></a>	 -->
+							<div class="price-wrap h5">
+								<span class="price-new">₹{{ item.price }} </span> <del class="price-old">₹200</del>
+							</div> <!-- price-wrap.// -->
+						</div> <!-- bottom-wrap.// -->
+					</figure>
+				</div>
+			</div>

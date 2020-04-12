@@ -1,0 +1,60 @@
+  			  	<!-- RECENTLY ADDED PRODUCT -->
+<div class="row"><h4>Recently added products</h4><hr></div>
+			<div class="row">
+				
+				<div class="popout" id="popout">
+					<div class="btn">
+						<i class="fa fa-binoculars"></i>
+					</div>
+					<div class="panel">
+					  <div class="panel-header">
+						Hi Mr.<strong>{{ dashCtrl.userName }}</strong>, This page is to show recently aaded products. You can <strong>"Create" </strong>or <strong>"View"</strong> products using below buttons.<br/>Thank you for adding new products. 
+					  </div>
+					  <div class="panel-body">
+						<a class="btn btn-warning" ng-href="#/product/create" style="cursor: pointer;"><i class="fa fa-plus-square"></i></a>
+						<a class="btn btn-warning" ng-href="#/product/all" style="cursor: pointer">
+							<i class="fa fa-shopping-bag text-muted" style="padding:0px 10px;" aria-hidden="true"></i>
+						</a>
+					</div>
+					</div>
+				  </div>
+				<div class="col-md-4" ng-if="dashCtrl.productAvail">
+					<figure class="card card-product">
+						<div class="img-wrap"><img src="https://loremflickr.com/320/240"></div>
+						<figcaption class="info-wrap">
+								<h4 class="title">{{ dashCtrl.recentProduct.productName }}</h4>
+								<p class="desc">{{ dashCtrl.recentProduct.category }}</p>
+						</figcaption>
+						<div class="bottom-wrap">
+							<a  href="#/product/{{dashCtrl.recentProduct._id }}" class="float-right"><i class="fa fa-info"  data-toggle="tooltip" data-placement="bottom" title="Know More"></i></a>	
+							<a href="" ng-click="dashCtrl.addToCart()" class="float-right"><i class="fa fa-cart-plus"  data-toggle="tooltip" data-placement="bottom" title="Add to Cart"></i></a>	
+							<div class="price-wrap h5">
+								<span class="price-new">₹{{ dashCtrl.recentProduct.price }} </span> <del class="price-old">₹200</del>
+							</div> <!-- price-wrap.// -->
+						</div> <!-- bottom-wrap.// -->
+					</figure>
+				</div>
+				<script>
+					$( document ).ready(function() {
+	console.log( "ready!" );
+	$(".popout .btn").click(function () {
+          console.log('came');
+            $(this).toggleClass("active");
+            $(this).closest(".popout").find(".panel").toggleClass("active");
+          });
+          $(document).click(function () {
+            $(".popout .panel").removeClass("active");
+            $(".popout .btn").removeClass("active");
+          });
+          $(".popout .panel").click(function (event) {
+            event.stopPropagation();
+          });
+          $(".popout .btn").click(function (event) {
+            event.stopPropagation();
+          });
+});
+					
+				</script>
+			</div>
+		
+
