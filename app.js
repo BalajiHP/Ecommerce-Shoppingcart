@@ -21,7 +21,6 @@ app.use(session({
   cookie: { secure: false }  // make true incase of SSL certificate
 }));
 
-
 //built-in Node-module to get path.No installation required
 var path = require("path");
 
